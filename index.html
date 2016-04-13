@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="libraries/jquery-1.12.2.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+
+    <!--    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>-->
+</head>
+
+<body>
+
+    <center>
+        <div id='out'></div>
+        <input id='file_picker' type='file' onchange="readURL(this);" />
+
+        <form oninput="max_diam_amount.value = max_diam.value">
+            Analized Diameter:
+            <input type="range" id="max_diam" name="max_diam" min="0" max="20" value="8">
+            <output name="max_diam_amount" for="max_diam">8</output>
+        </form>
+
+        <form oninput="draw_diam_amount.value = draw_diam.value">
+            Draw Diameter:
+            <input type="range" id="draw_diam" name="draw_diam" min="0" max="20" value="8">
+            <output name="draw_diam_amount" for="draw_diam">8</output>
+        </form>
+
+        <form oninput="resize_factor_amount.value = resize_factor.value">
+            Image Size:
+            <input type="range" id="resize_factor" name="resize_factor" min="0" max="200" value="100" onchange="resizeImg();">
+            <output name="resize_factor_amount" for="resize_factor">100</output>
+        </form>
+
+        <button type="button" name="re-draw" onclick="re_draw();">re-draw</button>
+    </center>
+</body>
+
+</html>
