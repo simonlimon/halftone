@@ -10,9 +10,7 @@ function setup() {
 }
 
 function re_draw() {
-
   half_tone();
-
 }
 
 function readURL(input) {
