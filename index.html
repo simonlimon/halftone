@@ -16,21 +16,28 @@
 
     <link rel="stylesheet" href="style.css">
 
-
+    <link rel="stylesheet" href="buttons.css">
 
     <!--    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>-->
 </head>
 
 <body>
 
-    <div style="text-align: center;">
-        <div id='out'></div>
+<div style="text-align: center;">
+    <div id='out'></div>
 
-        <table id="diam_table">
-        </table>
+    <table id="diam_table">
+    </table>
 
-        <input id='file_picker' type='file' onchange="readFile(this);" />
 
+    <form oninput="label.value = file_picker.value">
+        <input class="inputfile" id='file_picker' name="file_picker" type='file' onchange="readFile(this);"/>
+        <label class="button -border" for="file_picker" id="file_name">Choose a file</label>
+    </form>
+
+    <br>
+
+    <div id="sliders">
         <form oninput="max_diam_amount.value = max_diam.value">
             Analized Diameter:
             <input type="range" id="max_diam" name="max_diam" min="0" max="20" value="8">
@@ -45,14 +52,19 @@
 
         <form oninput="resize_factor_amount.value = resize_factor.value">
             Image Size:
-            <input type="range" id="resize_factor" name="resize_factor" min="0" max="200" value="100" onchange="resizeImg();">
+            <input type="range" id="resize_factor" name="resize_factor" min="0" max="200" value="100"
+                   onchange="resizeImg();">
             <output name="resize_factor_amount" for="resize_factor">100</output>
         </form>
-
-        <button type="button" name="re-draw" onclick="half_tone();">re-draw</button>
-        <button type="button" name="re-draw" onclick="table();">table</button>
-
     </div>
+
+    <div class="button-container">
+        <button class="button -blue" type="button" name="re-draw" onclick="half_tone();">re-draw</button>
+        <button class="button -blue" type="button" name="table" onclick="table();">table</button>
+    </div>
+
+</div>
+
 </body>
 
 </html>

@@ -3,7 +3,7 @@ var drawButton;
 var img, img_w, img_h;
 
 function setup() {
-    var canvas = createCanvas(100, 100);
+    var canvas = createCanvas(50, 50);
     canvas.parent('out');
     // fileSelect = createFileInput(gotFile);
     imageMode(CENTER);
@@ -60,6 +60,7 @@ function readFile(input) {
 
         reader.onload = function (e) {
             img = loadImage(e.target.result, img_loaded);
+            $("#file_name").empty().append("" + input.files[0].name)
         };
 
         reader.readAsDataURL(input.files[0]);
