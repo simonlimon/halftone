@@ -23,44 +23,43 @@
 
 <body>
 
-<div style="text-align: center;">
-    <div id='out'></div>
+    <div style="text-align: center;">
+        <div id='out'></div>
 
-    <table id="diam_table">
-    </table>
+        <table id="diam_table">
+        </table>
 
 
-    <form oninput="label.value = file_picker.value">
-        <input class="inputfile" id='file_picker' name="file_picker" type='file' onchange="readFile(this);"/>
-        <label class="button -border" for="file_picker" id="file_name">Choose a file</label>
-    </form>
+        <form oninput="label.value = file_picker.value">
+            <input class="inputfile" id='file_picker' name="file_picker" type='file' onchange="readFile(this);" />
+            <label class="button -border" for="file_picker" id="file_name">Choose a file</label>
+        </form>
 
-    <br>
-
-    <form id="inputs">
-        Diameter:
-        <br>
-        Minimum: <input type="text" id="min_diam" name="min_diam" value="1" class="number_input">
-        Maximum: <input type="text" id="max_diam" name="max_diam" value="6" class="number_input">
         <br>
 
-        Number of circles: <input type="text" id="num_circles" name="num_circles" value="5" class="number_input">
-        <br>
+        <form id="inputs">
+            Diameter:
+            <br> Minimum:
+            <input type="text" id="min_diam" name="min_diam" value="1" class="number_input"> Maximum:
+            <input type="text" id="max_diam" name="max_diam" value="6" class="number_input">
+            <br> Number of circles:
+            <input type="text" id="num_circles" name="num_circles" value="5" class="number_input">
+            <br>
 
-        <form oninput="resize_factor_amount.value = resize_factor.value">
+            <!-- <form oninput="resize_factor_amount.value = resize_factor.value">
             Image Size:
             <input type="range" id="resize_factor" name="resize_factor" min="0" max="200" value="100"
                    onchange="resizeImg();">
             <output name="resize_factor_amount" for="resize_factor">100</output>
+        </form> -->
         </form>
-    </form>
 
-    <div class="button-container">
-        <button class="button -blue" type="button" name="re-draw" onclick="half_tone();">re-draw</button>
-        <button class="button -blue" type="button" name="table" onclick="table();">table</button>
+        <div class="button-container">
+            <button class="button -blue" type="button" name="re-draw" onclick="half_tone();">re-draw</button>
+            <button class="button -blue" type="button" name="table" onclick="table();">table</button>
+        </div>
+
     </div>
-
-</div>
 
 </body>
 
