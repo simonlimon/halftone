@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>HalfToner</title>
 
     <script src="libraries/p5.js" type="text/javascript"></script>
 
@@ -37,18 +37,15 @@
 
     <br>
 
-    <div id="sliders">
-        <form oninput="max_diam_amount.value = max_diam.value">
-            Analized Diameter:
-            <input type="range" id="max_diam" name="max_diam" min="0" max="20" value="8">
-            <output name="max_diam_amount" for="max_diam">8</output>
-        </form>
+    <form id="inputs">
+        Diameter:
+        <br>
+        Minimum: <input type="text" id="min_diam" name="min_diam" value="1" class="number_input">
+        Maximum: <input type="text" id="max_diam" name="max_diam" value="6" class="number_input">
+        <br>
 
-        <form oninput="draw_diam_amount.value = draw_diam.value">
-            Draw Diameter:
-            <input type="range" id="draw_diam" name="draw_diam" min="0" max="20" value="8">
-            <output name="draw_diam_amount" for="draw_diam">8</output>
-        </form>
+        Number of circles: <input type="text" id="num_circles" name="num_circles" value="5" class="number_input">
+        <br>
 
         <form oninput="resize_factor_amount.value = resize_factor.value">
             Image Size:
@@ -56,7 +53,7 @@
                    onchange="resizeImg();">
             <output name="resize_factor_amount" for="resize_factor">100</output>
         </form>
-    </div>
+    </form>
 
     <div class="button-container">
         <button class="button -blue" type="button" name="re-draw" onclick="half_tone();">re-draw</button>
