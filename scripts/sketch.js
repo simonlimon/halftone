@@ -89,7 +89,7 @@ function half_tone() {
 
 function load_circles(){
 
-    num_circles = parseInt($('#num_circles').val());
+    num_circles = parseInt($('#num_circles').val()) + 1;
     min_diam = parseInt($('#min_diam').val());
     max_diam = parseInt($('#max_diam').val());
 
