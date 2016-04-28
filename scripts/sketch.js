@@ -1,4 +1,4 @@
-var img, img_w, img_h, circles, row;
+var img, img_w, img_h, circles, row, min_diam, max_diam, num_circles;
 
 function setup() {
     var canvas = createCanvas(50, 50);
@@ -19,13 +19,34 @@ function table() {
     table.append("<tr></tr>");
     activeRow = table.children().children().last();
 
-    activeRow.append("<td>" + floor(circles[0].d) + "</td>");
-    for (i = 1; i < circles.length; i++) {
+    var circle_num = map(circles[0].d, min_diam, max_diam, 0, 1);
+    var count = 0;
+    for (var j = 0; j <= 1; j += 1/(num_circles-1)) {
+        if (circle_num <= j) {
+            circle_num = count;
+            break;
+        }
+        count++;
+    }
+
+    activeRow.append("<td>" + circle_num + "</td>");
+    for (var i = 1; i < circles.length; i++) {
         if (i % rowLength == 0) {
             table.append("<tr></tr>");
             activeRow = table.children().children().last();
         }
-        activeRow.append("<td>" + floor(circles[i].d) + "</td>");
+
+        circle_num = map(circles[i].d, min_diam, max_diam, 0, 1);
+        count = 0;
+        for (j = 0; j <= 1; j += 1/(num_circles-1)) {
+            if (circle_num <= j) {
+                circle_num = count;
+                break;
+            }
+            count++;
+        }
+
+        activeRow.append("<td>" + circle_num + "</td>");
     }
 }
 
@@ -67,12 +88,11 @@ function half_tone() {
 }
 
 function load_circles(){
-    var max_diam = parseInt($('#max_diam').val());
-    var draw_diam = parseInt($('#draw_diam').val());
 
-    var numcircles = 4;
-    var minsize = 1;
-    var maxsize = 4;
+    num_circles = parseInt($('#num_circles').val());
+    min_diam = parseInt($('#min_diam').val());
+    max_diam = parseInt($('#max_diam').val());
+
     circles = [];
 
     img.loadPixels();
@@ -90,14 +110,15 @@ function load_circles(){
         darkness = 1 - brightness(c) / 256.0 ;
 
         var diff;
-        for (var j = 0; j <= 1; j += 1/(numcircles-1)) {
-            diff = abs(j - darkness)
-            if (diff <= (1/(numcircles-1))/2) {
+        for (var j = 0; j <= 1; j += 1/(num_circles-1)) {
+            diff = abs(j - darkness);
+            if (diff <= (1/(num_circles-1))/2) {
                 darkness = j;
+                break;
             }
         }
 
-        diam = map(darkness, 0, 1, minsize, maxsize);
+        diam = map(darkness, 0, 1, min_diam, max_diam);
 
         circles.push(new Circle(x, y, diam, color(0)));
         x += max_diam;
