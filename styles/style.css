@@ -38,4 +38,18 @@ td {
 
 .number_input {
     width: 20px;
+    font: 12px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align: center;
+    font-weight: bold;
+    /*padding: 10px;*/
+    border: none;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+}
+
+
+.number_input:focus,
+.number_input.focus {
+    outline: none;
+    border-bottom: solid 2px #969696;
 }
