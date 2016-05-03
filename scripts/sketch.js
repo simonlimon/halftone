@@ -1,4 +1,4 @@
-var img, img_w, img_h, circles, row, min_diam, max_diam, num_circles;
+var img, img_w, img_h, circles, row, min_diam, max_diam, analyzed_diam, num_circles;
 
 function setup() {
     var canvas = createCanvas(50, 50);
@@ -92,6 +92,7 @@ function load_circles(){
     num_circles = parseInt($('#num_circles').val()) + 1;
     min_diam = parseInt($('#min_diam').val());
     max_diam = parseInt($('#max_diam').val());
+    analyzed_diam = parseInt($('#analyzed_diam').val());
 
     circles = [];
 
@@ -103,7 +104,7 @@ function load_circles(){
     var c, darkness, diam;
     var d = pixelDensity();
 
-    for (var i = x * 4 * d; i < pxls.length; i += max_diam * 4 * d) {
+    for (var i = x * 4 * d; i < pxls.length; i += analyzed_diam * 4 * d) {
         c = color(pxls[i], pxls[i + 1], pxls[i + 2]);
 
         // Value from 0 to 1 (1 being the darkest)
@@ -121,12 +122,12 @@ function load_circles(){
         diam = map(darkness, 0, 1, min_diam, max_diam);
 
         circles.push(new Circle(x, y, diam, color(0)));
-        x += max_diam;
+        x += analyzed_diam;
         if (x >= img.width) {
             row++;
-            x = floor(max_diam / 2.0);
-            i = x * 4 * d + img.width * 4 * d * row * max_diam;
-            y += max_diam;
+            x = floor(analyzed_diam / 2.0);
+            i = x * 4 * d + img.width * 4 * d * row * analyzed_diam;
+            y += analyzed_diam;
         }
     }
 }

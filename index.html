@@ -38,14 +38,15 @@
         <br>
 
         <form id="inputs">
-            Diameter:
-            <br> Minimum:
-            <input type="text" id="min_diam" name="min_diam" value="1" class="number_input"> Maximum:
-            <input type="text" id="max_diam" name="max_diam" value="6" class="number_input">
-            <br> Number of circles:
-            <input type="text" id="num_circles" name="num_circles" value="5" class="number_input">
+            Circle diameter:
             <br>
-
+            <label for="min_diam">Min </label><input type="text" id="min_diam" name="min_diam" value="1" class="number_input">
+            <label for="max_diam">Max </label><input type="text" id="max_diam" name="max_diam" value="6" class="number_input">
+            <br><br>
+            <label for="num_circles"> Number of circles: </label><input type="text" id="num_circles" name="num_circles" value="5" class="number_input">
+            <br>
+            <label for="analyzed_diam">Analyzed diameter: </label><input type="text" id="analyzed_diam" name="analyzed_diam" value="6" class="number_input">
+            <br>
             <!-- <form oninput="resize_factor_amount.value = resize_factor.value">
             Image Size:
             <input type="range" id="resize_factor" name="resize_factor" min="0" max="200" value="100"
